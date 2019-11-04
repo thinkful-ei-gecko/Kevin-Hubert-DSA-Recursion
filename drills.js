@@ -121,7 +121,21 @@ function factorial(num) {
 factorial(5);
 
 //Drill #8 - Maze
-function maze(arr) {
+let mySmallMaze = [
+	[' ', ' ', ' '],
+	[' ', '*', ' '],
+	[' ', ' ', 'e']
+];
+
+let maze = [
+	[' ', ' ', ' ', '*', ' ', ' ', ' '],
+	['*', '*', ' ', '*', ' ', '*', ' '],
+	[' ', ' ', ' ', ' ', ' ', ' ', ' '],
+	[' ', '*', '*', '*', '*', '*', ' '],
+	[' ', ' ', ' ', ' ', ' ', ' ', 'e']
+];
+
+function mazeSolver(arr, x, y) {
 	/*
 	Rule #1: If there's a boundary([]) on your left or right, you cannot go to that direction.
 	Rule #2: If there's a blocked passage(*) in any direction, we cannot go to that blocked direction
