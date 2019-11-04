@@ -99,3 +99,19 @@ stringSplitter('02/20/2020', '/');
 // ['0' + ['20']] = ['020']
 // ...
 // ['02202020']
+
+//Drill #6 - Fibonacci
+function fib(n) {
+    //base case
+    if(n == 0) {
+        return 0;
+    }
+    if(n == 1 || n == 2) {
+        return 1;
+    }
+
+    //general case
+    return fib(n - 1) + fib(n - 2)
+}
+
+fib(5)
