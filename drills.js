@@ -68,3 +68,34 @@ function triangularNum(n) {
 triangularNum(10);
 
 //Drill #5 String Splitter
+function stringSplitter(string, separator) {
+  if (string.length === 0) {
+    return [];
+  }
+
+  // if we hit a separator
+  if (string.charAt(0) === separator) {
+    return [string.charAt(1) + stringSplitter(string.substring(2), separator)];
+  }
+  // if we don't hit a separator
+  else {
+    return [string.charAt(0) + stringSplitter(string.substring(1), separator)];
+  }
+}
+stringSplitter('02/20/2020', '/');
+// forward phase
+// ['0' + stringSplitter('2/20/2020', '/')]
+// ['2' + stringSplitter('/20/2020', '/')]
+// ['2' + stringSplitter('0/2020', '/')]
+// ['0' + stringSplitter('/2020', '/')]
+// ['2' + stringSplitter('020', '/')]
+// ['0' + stringSplitter('20', '/')]
+// ['2' + stringSplitter('0', '/')]
+// ['0' + stringSplitter('', '/')]
+// [] <- base case
+// backward phase
+// ['0' + []] = ['0']
+// ['2' + ['0']] = ['20']
+// ['0' + ['20']] = ['020']
+// ...
+// ['02202020']
