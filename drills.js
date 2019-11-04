@@ -110,7 +110,7 @@ function fib(n) {
 }
 fib(7);
 
-//Drill #7
+//Drill #7 - Factorial
 function factorial(num) {
   if (num === 1) {
     return 1;
@@ -119,3 +119,22 @@ function factorial(num) {
   return num * factorial(num - 1);
 }
 factorial(5);
+
+//Drill #8 - Maze
+function maze(arr) {
+	/*
+	Rule #1: If there's a boundary([]) on your left or right, you cannot go to that direction.
+	Rule #2: If there's a blocked passage(*) in any direction, we cannot go to that blocked direction
+	Rule #3: If we reach the last element of the array, we return 
+	*/
+
+	if(arr[0].length === 0) {
+		return '';
+	}
+
+	if(arr[1][0] === '*') {
+		return 'R';
+	} else if () {
+			
+	}
+}
