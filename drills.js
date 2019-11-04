@@ -69,49 +69,53 @@ triangularNum(10);
 
 //Drill #5 String Splitter
 function stringSplitter(string, separator) {
+  /* 
+  Rule 1: An empty string results in an array containing an empty string
+  Rule 2: A string with a separator at the start results in an array with an empty string as the first element.
+          The remaining elements is equal to the rest of the input array.
+          ['', ...arr]
+  Rule 3: A string with a non-separator at the start results in an array with the first element as all preceding characters before the separator.
+          The remaining elements is equal to the rest of the input array at index 1.
+          [string.charAt[0] + arr[0], ...arr[1..]]
+
+          baqfo => ['ba', 'fo]
+          aqaqaqfo => [a + recur(aqaqaqfo), ...recur(qaqaqfo)]
+  */
+
   if (string.length === 0) {
-    return [];
+    return [''];
   }
 
+  const arr = stringSplitter(string.substring(1), separator);
   // if we hit a separator
   if (string.charAt(0) === separator) {
-    return [string.charAt(1) + stringSplitter(string.substring(2), separator)];
+    return ['', ...arr];
   }
   // if we don't hit a separator
   else {
-    return [string.charAt(0) + stringSplitter(string.substring(1), separator)];
+    return [string.charAt(0) + arr[0], ...arr.slice(1)];
   }
 }
 stringSplitter('02/20/2020', '/');
-// forward phase
-// ['0' + stringSplitter('2/20/2020', '/')]
-// ['2' + stringSplitter('/20/2020', '/')]
-// ['2' + stringSplitter('0/2020', '/')]
-// ['0' + stringSplitter('/2020', '/')]
-// ['2' + stringSplitter('020', '/')]
-// ['0' + stringSplitter('20', '/')]
-// ['2' + stringSplitter('0', '/')]
-// ['0' + stringSplitter('', '/')]
-// [] <- base case
-// backward phase
-// ['0' + []] = ['0']
-// ['2' + ['0']] = ['20']
-// ['0' + ['20']] = ['020']
-// ...
-// ['02202020']
 
 //Drill #6 - Fibonacci
 function fib(n) {
-    //base case
-    if(n == 0) {
-        return 0;
-    }
-    if(n == 1 || n == 2) {
-        return 1;
-    }
+  //base case
+  if (n <= 2) {
+    return 1;
+  }
 
-    //general case
-    return fib(n - 1) + fib(n - 2)
+  //general case
+  return fib(n - 1) + fib(n - 2);
 }
+fib(7);
 
-fib(5)
+//Drill #7
+function factorial(num) {
+  if (num === 1) {
+    return 1;
+  }
+
+  return num * factorial(num - 1);
+}
+factorial(5);
