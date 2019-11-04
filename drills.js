@@ -27,3 +27,12 @@ const powerCalculator = function(base, exponent) {
 powerCalculator(10, 3)
 
 //Drill #3 - Reverse String
+function reverseString(string) {
+  //base case
+  if (string.length === 0) {
+    return '';
+  }
+  let lastChar = string.length - 1;
+  return string.charAt(lastChar) + reverseString(string.substring(lastChar, 0));
+}
+reverseString('this is a string');
