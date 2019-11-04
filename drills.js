@@ -13,3 +13,17 @@ const sheepCount = function(sheep) {
 sheepCount(3);
 
 //Drill #2 - Power Calculator
+
+const powerCalculator = function(base, exponent) {
+    if (exponent < 0) {
+        return 'Exponent should be >= 0';
+    } else if (exponent == 0) {
+        return 1;
+    }
+
+    return (base * powerCalculator(base, exponent - 1))
+}
+
+powerCalculator(10, 3)
+
+//Drill #3 - Reverse String
