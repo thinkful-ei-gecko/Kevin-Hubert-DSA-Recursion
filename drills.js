@@ -36,3 +36,18 @@ function reverseString(string) {
   return string.charAt(lastChar) + reverseString(string.substring(lastChar, 0));
 }
 reverseString('this is a string');
+
+//Drill #4 - nth Triangular Number
+function triangularNum(n) {
+    //base case
+    if (n == 1) {
+        return 1;
+    }
+    //input is the 'n'
+    //output is the number of dots composing a triangle with the 'n' of dots on a side
+    return triangularNum(n - 1) + n
+    // 3 + triangularNum(2) = 3 + 3 = 6
+    // 2 + triangularNum(1) = 2 + 1 = 3
+    // 1
+}
+triangularNum(10);
